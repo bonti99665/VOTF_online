@@ -456,6 +456,8 @@ img, video {
   }
   
   .navbar {
+    position: sticky;
+    top: 0;
     padding: 0.75rem 1rem;
   }
   
@@ -481,6 +483,10 @@ img, video {
     font-size: 0.95rem;
   }
   
+  .hide-on-mobile {
+    display: none;
+  }
+  
   .features-grid {
     grid-template-columns: 1fr;
   }
@@ -491,7 +497,7 @@ img, video {
   }
   
   .hero {
-    padding: 120px 1rem 60px;
+    padding: 80px 1rem 60px;
   }
   
   .section-title {
@@ -499,7 +505,7 @@ img, video {
   }
   
   .page-content {
-    padding: 100px 1rem 60px;
+    padding: 80px 1rem 60px;
   }
   
   .footer-links {
