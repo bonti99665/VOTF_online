@@ -27,6 +27,11 @@ body {
   overflow-x: hidden;
 }
 
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Navigation */
 .navbar {
   position: fixed;
@@ -450,8 +455,30 @@ body {
     font-size: 1.1rem;
   }
   
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .nav-container {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+  }
+  
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+  
   .nav-links {
     gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .nav-links a {
+    font-size: 0.95rem;
   }
   
   .features-grid {
@@ -463,9 +490,53 @@ body {
     gap: 1rem;
   }
   
+  .hero {
+    padding: 120px 1rem 60px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .page-content {
+    padding: 100px 1rem 60px;
+  }
+  
   .footer-links {
     flex-direction: column;
     gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .cta-button {
+    padding: 0.65rem 1.1rem;
+  }
+  
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .timeline {
+    padding: 60px 1rem;
+  }
+  
+  .footer {
+    padding: 2rem 1rem 1.5rem;
   }
 }
 
