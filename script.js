@@ -46,12 +46,47 @@ document.addEventListener('DOMContentLoaded', function() {
     lastScroll = currentScroll;
   });
 
+  initCoreTabs();
+
   // Form submission handler
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', handleFormSubmit);
   }
 });
+
+function initCoreTabs() {
+  const tabs = Array.from(document.querySelectorAll('.core-tab'));
+  const panels = Array.from(document.querySelectorAll('.core-panel'));
+  if (!tabs.length || !panels.length) return;
+
+  function activateTab(tab) {
+    const panelId = tab.getAttribute('aria-controls');
+    tabs.forEach(function (item) {
+      const selected = item === tab;
+      item.setAttribute('aria-selected', selected ? 'true' : 'false');
+      item.tabIndex = selected ? 0 : -1;
+    });
+    panels.forEach(function (panel) {
+      panel.classList.toggle('is-active', panel.id === panelId);
+    });
+  }
+
+  tabs.forEach(function (tab, index) {
+    tab.tabIndex = index === 0 ? 0 : -1;
+    tab.addEventListener('click', function () {
+      activateTab(tab);
+    });
+    tab.addEventListener('keydown', function (event) {
+      if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+      event.preventDefault();
+      const offset = event.key === 'ArrowRight' ? 1 : -1;
+      const next = (index + offset + tabs.length) % tabs.length;
+      tabs[next].focus();
+      activateTab(tabs[next]);
+    });
+  });
+}
 
 // Handle contact form submission
 function handleFormSubmit(event) {
